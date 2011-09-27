@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Answer do
-  it "should be valid" do
-    Answer.new.should be_valid
-  end
+  it { should validate_presence_of :content }
+  it { should belong_to :question }
 end
