@@ -21,6 +21,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem "remarkable_activerecord"
+  #gem 'remarkable', :git => "https://github.com/remarkable/remarkable.git", :branch => "rspec2"
 end
 gem "mocha", :group => :test
