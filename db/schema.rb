@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927201454) do
+ActiveRecord::Schema.define(:version => 20110928215617) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -24,9 +24,24 @@ ActiveRecord::Schema.define(:version => 20110927201454) do
     t.datetime "updated_at"
   end
 
+  create_table "survey_results", :force => true do |t|
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "surveys", :force => true do |t|
     t.string   "title"
     t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_answers", :force => true do |t|
+    t.integer  "survey_result_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

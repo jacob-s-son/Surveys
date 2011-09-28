@@ -1,0 +1,17 @@
+<% title "Survey Results" %>
+
+<table>
+  <tr>
+    <th>Survey</th>
+  </tr>
+  <% for survey_result in @survey_results %>
+    <tr>
+      <td><%= survey_result.survey_id %></td>
+      <td><%= link_to "Show", survey_result %></td>
+      <td><%= link_to "Edit", edit_survey_result_path(survey_result) %></td>
+      <td><%= link_to "Destroy", survey_result, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Survey Result", new_survey_result_path %></p>

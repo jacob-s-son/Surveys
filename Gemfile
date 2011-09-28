@@ -20,8 +20,10 @@ group :development do
 end
 
 group :test do
+  gem 'rspec'
   gem 'rspec-rails'
-  gem "remarkable_activerecord"
-  #gem 'remarkable', :git => "https://github.com/remarkable/remarkable.git", :branch => "rspec2"
+  gem 'remarkable', '>=4.0.0.alpha4'
+  gem 'remarkable_activemodel', '>=4.0.0.alpha4'
+  gem 'remarkable_activerecord', '>=4.0.0.alpha4'
+  gem "mocha"
 end
-gem "mocha", :group => :test

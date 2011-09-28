@@ -1,0 +1,11 @@
+one:
+  survey_result_id: 1
+  question_id: 1
+  answer_id: 1
+  content: MyString
+
+two:
+  survey_result_id: 1
+  question_id: 1
+  answer_id: 1
+  content: MyString

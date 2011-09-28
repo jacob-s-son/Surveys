@@ -1,0 +1,12 @@
+<% title "Survey Result" %>
+
+<p>
+  <strong>Survey:</strong>
+  <%= @survey_result.survey_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_result_path(@survey_result) %> |
+  <%= link_to "Destroy", @survey_result, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", survey_results_path %>
+</p>

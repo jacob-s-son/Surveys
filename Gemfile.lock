@@ -97,11 +97,15 @@ GEM
     rake (0.9.2)
     rbx-require-relative (0.0.5)
     rdoc (3.9.4)
-    remarkable (3.1.13)
-      rspec (>= 1.2.0)
-    remarkable_activerecord (3.1.13)
-      remarkable (~> 3.1.13)
-      rspec (>= 1.2.0)
+    remarkable (4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
+    remarkable_activemodel (4.0.0.alpha4)
+      remarkable (~> 4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
+    remarkable_activerecord (4.0.0.alpha4)
+      remarkable (~> 4.0.0.alpha4)
+      remarkable_activemodel (~> 4.0.0.alpha4)
+      rspec (>= 2.0.0.alpha11)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -156,7 +160,10 @@ DEPENDENCIES
   mocha
   nifty-generators!
   rails (= 3.1.0)
-  remarkable_activerecord
+  remarkable (>= 4.0.0.alpha4)
+  remarkable_activemodel (>= 4.0.0.alpha4)
+  remarkable_activerecord (>= 4.0.0.alpha4)
+  rspec
   rspec-rails
   ruby-debug
   sass-rails (~> 3.1.0)

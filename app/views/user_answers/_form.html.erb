@@ -1,0 +1,20 @@
+<%= form_for @user_answer do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <%= f.label :survey_result_id %>
+    <%= f.number_field :survey_result_id %>
+  </div>
+  <div class="field">
+    <%= f.label :question_id %>
+    <%= f.number_field :question_id %>
+  </div>
+  <div class="field">
+    <%= f.label :answer_id %>
+    <%= f.number_field :answer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
