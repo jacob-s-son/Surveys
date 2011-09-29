@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928215617) do
+ActiveRecord::Schema.define(:version => 20110929202239) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "question_id"
   end
 
   create_table "questions", :force => true do |t|
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_id"
   end
 
   create_table "survey_results", :force => true do |t|

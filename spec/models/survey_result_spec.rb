@@ -1,7 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe SurveyResult do
-  it { should validate_presence_of :ip_address }
+  it { should validate_presence_of :ip_address, :survey_id }
+  it { should validate_uniqueness_of( :ip_address, :scope => :survey_id ) }
   it { should have_many :user_answers }
   it { should have_many( :questions, :through => :user_answers ) }
   it { should belong_to :survey }
