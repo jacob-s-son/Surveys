@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe UserAnswer do
   it { should validate_presence_of( :content, :unless => :question_has_answers? )}

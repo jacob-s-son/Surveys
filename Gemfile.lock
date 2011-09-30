@@ -99,13 +99,6 @@ GEM
     rdoc (3.9.4)
     remarkable (4.0.0.alpha4)
       rspec (>= 2.0.0.alpha11)
-    remarkable_activemodel (4.0.0.alpha4)
-      remarkable (~> 4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
-    remarkable_activerecord (4.0.0.alpha4)
-      remarkable (~> 4.0.0.alpha4)
-      remarkable_activemodel (~> 4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -160,9 +153,7 @@ DEPENDENCIES
   mocha
   nifty-generators!
   rails (= 3.1.0)
-  remarkable (>= 4.0.0.alpha4)
-  remarkable_activemodel (>= 4.0.0.alpha4)
-  remarkable_activerecord (>= 4.0.0.alpha4)
+  remarkable
   rspec
   rspec-rails
   ruby-debug
