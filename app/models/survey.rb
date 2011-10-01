@@ -1,8 +1,10 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :title, :author
+  attr_accessible :title, :author, :description
+  attr_protected :id, :created_at, :updated_at
   has_many :questions
   has_many :answers, :through => :questions
+  accepts_nested_attributes_for :questions, :answers
   has_many :survey_results
   has_many :user_answers, :through => :survey_results
-  accepts_nested_attributes_for :questions, :answers
+  validates_presence_of :title, :author, :description
 end

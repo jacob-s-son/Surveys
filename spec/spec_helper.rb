@@ -7,6 +7,7 @@ require 'remarkable/active_record'
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+require File.dirname(__FILE__) + "/factories"
 
 RSpec.configure do |config|
   # == Mock Framework

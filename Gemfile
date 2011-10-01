@@ -22,8 +22,9 @@ end
 group :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'remarkable', :branch => 'master'
-  # gem 'remarkable_activemodel', :tag => 'no_deprec_warnings', :git => "git@github.com:jacob-s-son/remarkable.git"
-  # gem 'remarkable_activerecord', :tag => 'no_deprec_warnings', :git => "git@github.com:jacob-s-son/remarkable.git"
+  gem 'factory_girl'
+  gem 'remarkable', '>=4.0.0.alpha4'
+  gem 'remarkable_activemodel', '>=4.0.0.alpha4'
+  gem 'remarkable_activerecord', '>=4.0.0.alpha4'
   gem "mocha"
 end
