@@ -1,6 +1,5 @@
 class SurveyResult < ActiveRecord::Base
-  attr_accessible :ip_address
-  attr_protected :id, :created_at, :updated_at, :survey_id
+  attr_protected :id, :survey_id, :created_at, :updated_at
   belongs_to :survey
   has_many :user_answers
   accepts_nested_attributes_for :user_answers

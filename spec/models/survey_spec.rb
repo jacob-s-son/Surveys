@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Survey do
+  before { FactoryGirl.create :survey }
   it { should have_many :questions }
   it { should have_many( :answers, :through => :questions )}
   it { should accept_nested_attributes_for( :questions, :answers ) }

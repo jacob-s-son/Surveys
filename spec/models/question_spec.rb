@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Question do
+  before { FactoryGirl.create :question }
   it { should have_many :user_answers }
   it { should belong_to :survey }
   it { should have_column :survey_id } #checking if foreign key exists

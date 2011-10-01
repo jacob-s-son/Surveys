@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Answer do
+  before { FactoryGirl.create :answer }
   it { should belong_to :question }
   it { should have_column :question_id } #checking if foreign key exists
   it { should validate_presence_of( :content, :question_id ) }
