@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class AnswersController < AdministratorController
   def index
     @answers = Answer.all
   end
