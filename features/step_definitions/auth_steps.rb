@@ -4,6 +4,6 @@ When (/I go to the admin site$/) do
 end
 
 #digest auth in admin site
-When /log in with (.+):(.+)$/ do |username, password|
-  page.driver.browser.basic_authorize(username, password)
+When /log in$/ do
+  page.driver.browser.basic_authorize('admin', 'test')
 end
