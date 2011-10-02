@@ -55,13 +55,25 @@ end
 
 #notices/errors
 Then /^I should see (notice|error) "([^"]*)"$/ do |msg_type, msg|
-  save_and_open_page
   element = page.first(:css, "div#flash_#{msg_type}")
   element.should_not(be_nil, "Could not find flash #{msg_type} container")
   element.has_content?(msg).should(be_true, "Could not find the text '#{msg}' within flash #{msg_type}")
 end
 
+#several errors
+Then /^I should see errors ((?:"[^"]+",? ?)+)$/ do |msg_arr|
+  msg_arr.split(',').map {|m| m.gsub(/"/, '').strip}.each do |msg|
+    find(:xpath, "//ul/li[contains(text(),\"#{msg}\")]").should_not(be_nil, "Could not find title '#{msg}'")
+  end
+end
+
 #current page
-Then /^I should be on the (admin)?\/(\w+) page$/ do |namespace, model|
-  current_path.should == self.send( "#{namespace.to_s}_#{model}_path" )
+Then /^I should be on the ?(\w+)? (admin)?\/(\w+) page$/ do |action, namespace, model|
+  current_path.should == self.send( ( "#{action}_" if action ).to_s + 
+                                    ( "#{namespace}_" if namespace ).to_s + 
+                                    "#{model}_path" )
+end
+
+Then /^I should be on the page titled "([^"]+)"/ do |title|
+  find(:xpath, "/html/head/title[contains(text(),'#{title}')]").should_not(be_nil, "Could not find title '#{title}'")
 end

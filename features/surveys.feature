@@ -25,7 +25,7 @@ Feature: Managing surveys
     And I should see "0" in "td#2.number_of_results"
     And I should see "N" in "td.published"
     
-  Scenario: Create new unpublished survey without questions
+  Scenario: Successfully create new unpublished survey without questions
     Given no surveys
     And I am on the admin site
     When I follow "New Survey"
@@ -38,3 +38,10 @@ Feature: Managing surveys
     And I should see notice "New survey created !"
     And I should see "N" in "td.published"
     
+  Scenario: Successfully create new unpublished survey without questions
+    Given no surveys
+    And I am on the admin site
+    When I follow "New Survey"
+    And I press "Create"
+    Then I should be on the page titled "New Survey"
+    Then I should see errors "Title can't be blank", "Author can't be blank", "Description can't be blank"
