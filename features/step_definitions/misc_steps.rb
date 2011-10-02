@@ -5,12 +5,15 @@ end
 
 #digest auth in admin site
 When /log in$/ do
-  page.driver.browser.basic_authorize('admin', 'test')
+  # page.driver.browser.basic_authorize('admin', 'test')
+  authorize('admin', 'test')
 end
 
 #combination of the above
 Given /^I am on the admin site$/ do
-  page.driver.browser.basic_authorize('admin', 'test')
+  #debugger
+  #page.driver.browser.basic_authorize('admin', 'test')
+  authorize('admin', 'test')
   visit admin_root_path
 end
 

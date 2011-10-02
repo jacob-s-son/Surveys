@@ -29,6 +29,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'capybara-webkit'
   gem 'pickle'
   gem "mocha"
 end

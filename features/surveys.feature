@@ -38,10 +38,16 @@ Feature: Managing surveys
     And I should see notice "New survey created !"
     And I should see "N" in "td.published"
     
-  Scenario: Successfully create new unpublished survey without questions
+  Scenario: Fail to create new survey without title, description and author specified
     Given no surveys
     And I am on the admin site
     When I follow "New Survey"
     And I press "Create"
     Then I should be on the page titled "New Survey"
     Then I should see errors "Title can't be blank", "Author can't be blank", "Description can't be blank"
+  
+  @javascript
+  Scenario: Successfully create new unpublished survey with questions
+    Given no surveys
+    When I am on the admin site
+    Then I should see "No surveys added" within "p"

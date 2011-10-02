@@ -11,10 +11,9 @@ require 'ruby-debug'
 # order to ease the transition to Capybara we set the default here. If you'd
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
+
 Capybara.default_selector = :css
-Capybara.register_driver :rack_test do |app|
-  Capybara::RackTest::Driver.new(app, :browser => :chrome)
-end
+Capybara.javascript_driver = :webkit
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 
