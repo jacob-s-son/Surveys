@@ -2,5 +2,5 @@
 
 DIGEST_AUTH = {
   'realm' => 'Admin',
-  'admin' => ( Rails.env == "test" ? "f32f69c81da20e4619bb006028ce7fd6" : "902687f8df3ef87775a6116a92170062" )
+  'admin' => ( Rails.env == "test" ? "098f6bcd4621d373cade4e832627b4f6" : "7a3b70ca07190e9855b91aed19d68495" )
 }

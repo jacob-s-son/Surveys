@@ -1,4 +1,4 @@
-class SurveysController < AdministratorController
+class Admin::SurveysController < AdministratorController
   def index
     @surveys = Survey.all
   end
