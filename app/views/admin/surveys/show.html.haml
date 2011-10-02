@@ -8,8 +8,8 @@
   = @survey.author
 
 %p
-  = link_to "Edit", edit_survey_path(@survey)
+  = link_to "Edit", admin_edit_survey_path(@survey)
   |
-  = link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Destroy", admin_survey_path(@survey), :confirm => 'Are you sure?', :method => :delete
   |
-  = link_to "View All", surveys_path
+  = link_to "View All", admin_surveys_path

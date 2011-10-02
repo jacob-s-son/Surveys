@@ -28,6 +28,7 @@ group :test do
   gem 'remarkable_activerecord', '>=4.0.0.alpha4'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'pickle'
   gem "mocha"
 end

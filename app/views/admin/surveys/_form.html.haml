@@ -1,7 +1,9 @@
-= simple_form_for @survey do |f|
+= simple_form_for @survey, :url => admin_surveys_path(@survey) do |f|
   = f.error_messages
   .inputs
     = f.input :title
     = f.input :author
+    = f.input :description, :as => :text, :input_html => {:columns => 6, :rows => 4}
+    = f.input :published_flag, :label => "Published ?"
   .actions
-    = f.button :submit
+    = f.button :submit, "Create"

@@ -14,7 +14,7 @@ class Admin::SurveysController < AdministratorController
   def create
     @survey = Survey.new(params[:survey])
     if @survey.save
-      redirect_to @survey, :notice => "Successfully created survey."
+      redirect_to admin_surveys_path, :notice => "New survey created !"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::SurveysController < AdministratorController
   def update
     @survey = Survey.find(params[:id])
     if @survey.update_attributes(params[:survey])
-      redirect_to @survey, :notice  => "Successfully updated survey."
+      redirect_to admin_surveys_path, :notice  => "Successfully updated survey."
     else
       render :edit
     end
@@ -36,6 +36,6 @@ class Admin::SurveysController < AdministratorController
   def destroy
     @survey = Survey.find(params[:id])
     @survey.destroy
-    redirect_to surveys_url, :notice => "Successfully destroyed survey."
+    redirect_to admin_surveys_path, :notice => "Successfully destroyed survey."
   end
 end

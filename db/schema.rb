@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930233206) do
+ActiveRecord::Schema.define(:version => 20111002123533) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110930233206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.boolean  "published_flag"
   end
 
   create_table "user_answers", :force => true do |t|

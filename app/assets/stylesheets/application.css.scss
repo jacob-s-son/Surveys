@@ -17,3 +17,15 @@
   float: none;  
   margin: 0;  
 }
+
+div#message_container.error {
+	color:red;
+}
+
+div#message_container.notice {
+	color:green;
+}
+
+div#message_container.none {
+	display:none;
+}

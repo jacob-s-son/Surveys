@@ -1,11 +1,10 @@
 Surveys::Application.routes.draw do
   
-  scope(:admin) do
+  namespace :admin do
     resources :answers, :only => [:index]
     resources :questions, :only => [:index]
     resources :surveys
-    
-    match 'admin' => 'admin/surveys#index'
+    root :to => 'surveys#index'
   end
   
   resources :user_answers

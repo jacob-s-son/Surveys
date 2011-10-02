@@ -7,4 +7,18 @@ class Survey < ActiveRecord::Base
   has_many :survey_results
   has_many :user_answers, :through => :survey_results
   validates_presence_of :title, :author, :description
+  after_initialize :defaults
+  
+  def number_of_results
+    survey_results.size
+  end
+  
+  def published?
+    published_flag
+  end
+  
+  private
+  def defaults
+    published_flag = false if id.nil?
+  end
 end
