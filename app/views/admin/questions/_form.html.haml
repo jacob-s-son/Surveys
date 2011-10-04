@@ -1,6 +1,6 @@
-= simple_form_for @question do |f|
-  = f.error_messages
+= survey.simple_fields_for :questions do |q|
   .field
-    = f.input :content
-  .actions
-    = f.button :submit
+    = q.input :content
+    = q.input :type, :collection => Answer::ANSWER_TYPES
+  .answers
+    = linkt_to 'Add answer', '#'

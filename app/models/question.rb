@@ -6,6 +6,8 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answers
   has_many :user_answers
   validates_presence_of :content, :survey_id
+
+  attr_accessor :type
   
   def has_answers?
     answers.first #if first exists method evaluates to true

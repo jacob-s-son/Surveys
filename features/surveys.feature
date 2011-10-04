@@ -49,5 +49,27 @@ Feature: Managing surveys
   @javascript
   Scenario: Successfully create new unpublished survey with questions
     Given no surveys
-    When I am on the admin site
-    Then I should see "No surveys added" within "p"
+    And I am on the admin site
+    When I follow "New Survey"
+    And I fill in "Title" with "Music"
+    And I fill in "Description" with "Music"
+    And I fill in "Author" with "admin"
+    And I add 1st question "What is your favorite music genre?" with answer type "option"
+    #TODO: Need to find out how to dry it up
+    And I add 2nd answer "Rock" to 1st question
+    And I add 3rd answer "Classical" to 1st question
+    And I add 4th answer "Pop" to 1st question
+    And I add 5th answer "Soul" to 1st question
+    And I add 6th answer "Jazz" to 1st question
+    And I add 7th answer "Blues" to 1st question
+    And I add 8th answer "Metal" to 1st question
+    And I add 9th answer "Hip-Hop" to 1st question
+    And I add 10th answer "Rap" to 1st question
+    And I add 11th answer "Other" to 1st question
+    And I add 1st question "What is your favorite band of this genre?" with answer type "text"
+    And I add 1st question "How many years have you been listening to this music?" with answer type "number"
+    And I leave checkbox "Published ?" unchecked
+    And I press "Create"
+    Then I should be on the admin/surveys page
+    And I should see notice "New survey created !"
+    And I should see "N" in "td.published"
