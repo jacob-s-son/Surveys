@@ -9,6 +9,7 @@ class Admin::SurveysController < AdministratorController
 
   def new
     @survey = Survey.new
+    @survey.questions.build
   end
 
   def create

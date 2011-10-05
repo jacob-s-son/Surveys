@@ -1,6 +1,3 @@
-= simple_form_for @answer do |f|
-  = f.error_messages
-  .field
-    = f.input :content
-  .actions
-    = f.button :submit
+%div{ :id => "question_1_answer_1_container" }
+  = question.simple_fields_for :answers do |a|
+    = a.input :content

@@ -1,6 +1,7 @@
-= survey.simple_fields_for :questions do |q|
-  .field
+%div{ :id => "question_0_container" }
+  = survey.simple_fields_for :questions do |q|
     = q.input :content
-    = q.input :type, :collection => Answer::ANSWER_TYPES
-  .answers
-    = linkt_to 'Add answer', '#'
+    = q.input :type, :collection => Answer::ANSWER_TYPES, :include_blank => false, :html => {:class => "question_type_select"}
+    %div{:class => 'hidden', :id => 'question_0_answers_container' }
+      = render :partial => 'admin/answers/form', :locals => {:question => q}
+      = link_to 'Add answer', '#', { :id => 'add_question_0_answer', :class => 'add_answer' }

@@ -4,5 +4,5 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   validates_presence_of :question_id, :content
   
-  ANSWER_TYPES = [ "option", "text", "number" ]
+  ANSWER_TYPES = [ "text", "number", "option" ]
 end

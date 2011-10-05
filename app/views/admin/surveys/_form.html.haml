@@ -4,8 +4,10 @@
     = f.input :title
     = f.input :author
     = f.input :description, :as => :text, :input_html => {:columns => 6, :rows => 4}
-    = render :partial => 'admin/questions/form', :locals => { :survey => f }
-    = link_to 'Add question', '#'
+    %div{:id => 'questions'}
+      = render :partial => 'admin/questions/form', :locals => { :survey => f }
+      = link_to 'Add question', '#', {:id => 'add_question'}
+    
     = f.input :published_flag, :label => "Published ?"
   .actions
     = f.button :submit, "Create"
