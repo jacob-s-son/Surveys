@@ -9,6 +9,17 @@ class Survey < ActiveRecord::Base
   validates_presence_of :title, :author, :description
   after_initialize :defaults
   
+  #class methods
+  class << self
+    def new_with_nested_objects
+      survey = Survey.new
+      survey.questions.build
+      survey.questions.first.answers.build
+      survey
+    end
+  end
+  
+  
   def number_of_results
     survey_results.size
   end

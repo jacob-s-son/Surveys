@@ -8,8 +8,7 @@ class Admin::SurveysController < AdministratorController
   end
 
   def new
-    @survey = Survey.new
-    @survey.questions.build
+    @survey = Survey.new_with_nested_objects
   end
 
   def create

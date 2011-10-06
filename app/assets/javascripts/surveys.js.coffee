@@ -11,8 +11,22 @@ class Link
 
 class Question
 	constructor: ->
+		@nr = $('div.question_container').size()
+		@replace_regex = /(questions_attributes_|question_|\[questions_attributes\]\[)0/
 		@dom_object = $('#question_0_container').clone()
 		@dom_object.insertBefore( '#add_question' )
+		
+		for obj in @dom_object.find('*')
+			for attrib in ['id', 'for', 'name']
+				alert (eval "obj.#{attrib}")
+				if eval "obj.#{attrib}"
+					$(obj).attr('id', eval("obj.#{attrib}").replace(@replace_regex, "$1#{@nr}") )
+				if $(obj).attr(attrib)
+					$(obj).attr(attrib, $(obj).attr(attrib).replace(@replace_regex, "$1#{@nr}") )
+				# if obj.name
+				# 			$(obj).attr('name', obj.name.replace(@replace_regex, "$1#{@nr}") )
+		
+		@dom_object.attr('id', obj.id.replace(@replace_regex, "$1#{@nr}") )
 
 class AnswerLink extends Link
 	clicked: ->
@@ -21,7 +35,6 @@ class AnswerLink extends Link
 
 class QuestionLink extends Link
 	clicked: ->
-		alert "works!"
 		@question = new Question
 		
 class Application
