@@ -1,7 +1,13 @@
 .question_container{ :id => "question_0_container" }
+  - question_nr = 1
   = survey.simple_fields_for :questions do |q|
-    = q.input :content
-    = q.input :type, :collection => Answer::ANSWER_TYPES, :include_blank => false, :html => {:class => "question_type_select"}
-    %div{:class => 'hidden', :id => 'question_0_answers_container' }
+    .question_content_remove_link_container
+      = q.input :content, :input_html => {:columns => 6, :rows => 4}, :label => "Question ##{question_nr}", :wrapper_html => { :class => "question_content_wrapper" }
+      .question_remove_link_container= link_to "remove", "javascript:void(0)", {:id => "question_#{question_nr - 1}_remove"}
+    = q.input :type, :collection => Answer::ANSWER_TYPES, :include_blank => false, :input_html => {:class => "question_type_select"}
+    = q.input :_destroy, :as => :hidden
+    %div{:class => 'hidden answers_container', :id => 'question_0_answers_container' }
       = render :partial => 'admin/answers/form', :locals => {:question => q}
-      = link_to 'Add answer', '#', { :id => 'add_question_0_answer', :class => 'add_answer' }
+      .answer_link_container
+        = link_to 'Add answer', '#', { :id => 'add_question_0_answer', :class => 'add_answer' }
+    - question_nr += 1

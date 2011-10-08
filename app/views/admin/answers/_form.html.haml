@@ -1,3 +1,5 @@
-%div{ :id => "question_0_answer_0_container" }
+%div{ :id => "question_0_answer_0_container", :class => 'answer_container' }
+  - answer_nr = 1
   = question.simple_fields_for :answers do |a|
-    = a.input :content
+    = a.input :content, :label => "Answer ##{answer_nr}"
+    -answer_nr += 1

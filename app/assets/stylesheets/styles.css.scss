@@ -1,21 +1,38 @@
-.simple_form label {  
-  float: left;  
-  width: 100px;  
-  text-align: right;  
-  margin: 2px 10px;  
-}  
-  
-.simple_form div.input {  
-  margin-bottom: 10px;  
-}  
-  
-.simple_form div.boolean, .simple_form input[type='submit'] {  
-  margin-left: 120px;  
-}  
-  
-.simple_form div.boolean label {  
-  float: none;  
-  margin: 0;  
+$label-width:120px;
+$space-after-label:20px;
+$after-label:$label-width + $space-after-label;
+
+.simple_form {
+	label {
+		float: left;  
+	  width: $label-width;  
+	  text-align: right;  
+	  margin: 2px 10px;
+	}
+	
+	div.input {  
+	  margin-bottom: 10px;
+	}
+	
+	div.question_content_wrapper {
+//		display:inline-block;
+		float:left;
+	}
+	
+	.question_content_remove_link_container {
+		display:inline-block;
+//		clear:both;
+		width:100%;
+	}
+	
+	div.boolean, input[type='submit'] {  
+	  margin-left: $after-label;  
+	}
+	
+	div.boolean label {  
+	  float: none;  
+	  margin: 0;  
+	}
 }
 
 div#message_container.error {
@@ -32,4 +49,23 @@ div#message_container.none {
 
 div.hidden {
 	display:none;
+}
+
+div#questions {
+	margin-top:50px;
+	margin-bottom:50px;
+}
+
+div#question_link_container, div.answer_link_container {
+	margin-top:20px;
+	margin-left:$after-label;
+}
+
+div.question_container {
+	margin-top:20px;
+}
+
+div.question_remove_link_container {
+	float:left;
+	margin-left:10px;
 }
