@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008195643) do
+ActiveRecord::Schema.define(:version => 20111009150358) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(:version => 20111008195643) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "content",    :limit => 255
+    t.text     "content",       :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "survey_id"
+    t.string   "question_type"
   end
 
   create_table "survey_results", :force => true do |t|

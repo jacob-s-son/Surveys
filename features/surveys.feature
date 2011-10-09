@@ -54,8 +54,11 @@ Feature: Managing surveys
     And I fill in "Title" with "Music"
     And I fill in "Description" with "Music"
     And I fill in "Author" with "admin"
-    And I add 1st question "What is your favorite music genre?" with answer type "option"
+    And I fill in "Question #1" with "What is your favorite music genre?"
+    And I select "option" from "Answer is"
+    # And I add 1st question "What is your favorite music genre?" with answer type "option"
     #TODO: Need to find out how to dry it up
+    And I fill in "Answer #1.1" with "Folk"
     And I add 2nd answer "Rock" to 1st question
     And I add 3rd answer "Classical" to 1st question
     And I add 4th answer "Pop" to 1st question

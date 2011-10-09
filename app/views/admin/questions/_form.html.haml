@@ -1,13 +1,15 @@
-.question_container{ :id => "question_0_container" }
-  - question_nr = 1
-  = survey.simple_fields_for :questions do |q|
+- question_nr = 1
+= survey.simple_fields_for :questions do |q|
+  .question_container{ :id => "question_#{question_nr-1}_container" }
     .question_content_remove_link_container
-      = q.input :content, :input_html => {:columns => 6, :rows => 4}, :label => "Question ##{question_nr}", :wrapper_html => { :class => "question_content_wrapper" }
-      .question_remove_link_container= link_to "remove", "javascript:void(0)", {:id => "question_#{question_nr - 1}_remove"}
-    = q.input :type, :collection => Answer::ANSWER_TYPES, :include_blank => false, :input_html => {:class => "question_type_select"}
+      = q.input :content, :input_html => {:columns => 6, :rows => 4}, :label => "Question ##{question_nr}", :wrapper_html => { :class => "question_content_wrapper" }, :label_html => { :class => 'question_label' }
+      .question_remove_link_container= link_to "remove", "javascript:void(0)", {:id => "question_#{question_nr - 1}_remove", :class => "question_remove_link"}
+    = q.input :question_type, :label => 'Answer is', :collection => Question::ANSWER_TYPES, :include_blank => false, :input_html => {:class => "question_type_select"}
     = q.input :_destroy, :as => :hidden
-    %div{:class => 'hidden answers_container', :id => 'question_0_answers_container' }
-      = render :partial => 'admin/answers/form', :locals => {:question => q}
+    %div{:class => "#{'hidden' unless q.object.question_type == 'option'} answers_container", :id => "question_#{question_nr-1}_answers_container" }
+      - #FIXME : ugly workaround, and not extractable to helper, because objects are passed by value not reference
+      - q.object.answers.build unless q.object.has_answers?
+      = render :partial => 'admin/answers/form', :locals => {:question => q, :question_nr => question_nr}
       .answer_link_container
-        = link_to 'Add answer', '#', { :id => 'add_question_0_answer', :class => 'add_answer' }
-    - question_nr += 1
+        = link_to 'Add answer', 'javascript:void(0)', { :id => "add_question_#{question_nr-1}_answer", :class => 'add_answer' }
+  - question_nr += 1

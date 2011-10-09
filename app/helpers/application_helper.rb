@@ -13,4 +13,5 @@ module ApplicationHelper
   def has_notice?
     notice_type == 'none'
   end
+  
 end

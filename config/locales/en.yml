@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  attributes: 
+    question:
+      question_type: "Answer is"
+      content: "Question"

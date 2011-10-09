@@ -1,5 +1,7 @@
-%div{ :id => "question_0_answer_0_container", :class => 'answer_container' }
-  - answer_nr = 1
-  = question.simple_fields_for :answers do |a|
-    = a.input :content, :label => "Answer ##{answer_nr}"
+- answer_nr = 1
+= question.simple_fields_for :answers do |a|
+  %div{ :id => "question_0_answer_0_container", :class => 'answer_container' }
+    .answer_content_remove_link_container
+      = a.input :content, :label => "Answer ##{question_nr}.#{answer_nr}", :wrapper_html => { :class => "answer_content_wrapper" }, :label_html => { :class => 'answer_label'}
+      .answer_remove_link_container= link_to "remove", "javascript:void(0)", {:id => "question_#{question_nr - 1}_answer_#{answer_nr-1}_remove", :class => "answer_remove_link"}
     -answer_nr += 1
