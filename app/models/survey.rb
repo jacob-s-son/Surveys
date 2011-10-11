@@ -10,6 +10,8 @@ class Survey < ActiveRecord::Base
   after_initialize :defaults
   before_validation :delete_unused_objects
   
+  scope :published, where(:published_flag => true)
+  
   #class methods
   class << self
     def new_with_nested_objects

@@ -1,0 +1,16 @@
+- title "Surveys"
+- unless @surveys.empty?
+  %table{:class => "surveys_table"}
+    %tr
+      %th Title
+      %th Description
+      %th Author
+      %th &nbsp;
+      - for survey in @surveys
+        %tr
+          %td= survey.title
+          %td= survey.description
+          %td= survey.author
+          %td= link_to 'Fill', new_survey_survey_result_path(:survey_id => survey.id)
+- else
+  %p No surveys available

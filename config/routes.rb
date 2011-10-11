@@ -8,6 +8,9 @@ Surveys::Application.routes.draw do
   end
   
   resources :user_answers
-  resources :survey_results  
-  root :to => "survey_results#index"
+  resources :surveys, :only => [:index] do
+    resources :survey_results , :only => [:new, :create]
+  end
+  
+  root :to => "surveys#index"
 end

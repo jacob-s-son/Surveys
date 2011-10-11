@@ -14,4 +14,8 @@ module ApplicationHelper
     notice_type == 'none'
   end
   
+  def answer_options(ua)
+    ua.question.answers.map {|a| [ a.content, a.id ] }
+  end
+  
 end

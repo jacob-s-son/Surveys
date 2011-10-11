@@ -52,6 +52,44 @@ $after-label:$label-width + $space-after-label;
 		margin-top:50px;
 		margin-bottom:50px;
 	}
+	
+	span.error {
+		margin-left:10px;
+		color:red;
+	}
+	
+	div.radio {
+		span {
+			display:block;
+			clear:both;
+			
+			label.collection_radio {
+				float:left;
+				text-align:left;
+			}
+			input {
+				float:left;
+			}
+		}
+	}
+	
+	div.question {
+		padding-top:20px;
+		padding-bottom:20px;
+		font-weight:bold;
+	}
+	
+	div.question_answer {
+		display:block;
+		margin-top:20px;
+		margin-bottom:20px;
+		text-align:left;
+		clear:both;
+	}
+	
+	.actions_user_answers input {
+		margin: 0;
+	}
 }
 
 div#message_container.error {
@@ -68,4 +106,10 @@ div#message_container.none {
 
 div.hidden {
 	display:none;
+}
+
+table.surveys_table th, td{
+	min-width:150px;
+	text-align:left;
+	padding-left:15px;
 }

@@ -1,4 +1,4 @@
-= simple_form_for @survey, :url => admin_surveys_path(@survey) do |f|
+= simple_form_for @survey, :url => ( @survey.new_record? ? admin_surveys_path(@survey) : admin_survey_path(@survey) ) do |f|
   = f.error_messages
   .inputs
     = f.input :title
@@ -12,4 +12,4 @@
         = link_to 'Add question', 'javascript:void(0)', {:id => 'add_question'}
     
   .actions
-    = f.button :submit, "Create"
+    = f.button :submit, ( @survey.new_record? ? "Create" : "Save" )

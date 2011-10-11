@@ -1,0 +1,14 @@
+= simple_form_for @survey_result, :url => survey_survey_results_path(:survey_id => @survey.id) do |f|
+  = f.error_messages
+  .inputs
+    = f.simple_fields_for :user_answers do |ua|
+      .question_answer
+        = ua.input :question_id, :as => :hidden #TODO: Bad stuff, user can modify easily. Maybe there is another way
+        .question
+          = ua.object.question.content
+        - if ua.object.type_is?('option')
+          = ua.association :answer, :collection => answer_options(ua.object), :as => :radio, :label => false
+        -else
+          = ua.input :content, :label => false
+  .actions_user_answers
+    = f.button :submit, "Submit"
