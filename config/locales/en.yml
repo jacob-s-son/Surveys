@@ -3,7 +3,14 @@
 
 en:
   hello: "Hello world"
-  attributes: 
-    question:
-      question_type: "Answer is"
-      content: "Question"
+  activerecord:
+    models:
+      user_answer: "Answer"
+    attributes: 
+      question:
+        question_type: "Answer is"
+        content: "Question"
+      survey_result:
+        user_answer: "Answer"
+        user_answers: "Answers"
+  
