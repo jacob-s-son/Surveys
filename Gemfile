@@ -6,6 +6,7 @@ gem 'json'
 gem 'jquery-rails'
 gem 'haml'
 gem 'simple_form'
+gem "google_visualr", ">= 2.1"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

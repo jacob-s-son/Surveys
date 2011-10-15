@@ -1,0 +1,10 @@
+- title "Survey results for #{@survey.title}"
+- @survey.questions.each do |q|
+  .question_and_results_container
+    .question
+      = q.content
+    - if q.type_is?('option')
+      .chart{:id => "chart_#{q.id}"}
+      = render :partial => 'chart', :locals => { :q => q, :survey => @survey }
+    -else
+      .no_info Nothing to display

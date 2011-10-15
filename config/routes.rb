@@ -3,7 +3,9 @@ Surveys::Application.routes.draw do
   namespace :admin do
     resources :answers, :only => [:index]
     resources :questions, :only => [:index]
-    resources :surveys
+    resources :surveys do
+      resources :survey_results, :only => [:index]
+    end
     root :to => 'surveys#index'
   end
   

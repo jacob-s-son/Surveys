@@ -1,12 +1,15 @@
 - title "Surveys"
 - unless @surveys.empty?
-  %table
+  %table{:class => 'surveys_table'}
     %tr
       %th Title
       %th Description
       %th Author
       %th Published
       %th Results
+      %th{:class => 'link'} &nbsp;
+      %th{:class => 'link'} &nbsp;
+      %th{:class => 'link'} &nbsp;
       - for survey in @surveys
         %tr
           %td= survey.title
@@ -15,8 +18,9 @@
           %td.published= survey.published? ? 'Y' : 'N'
           %td.number_of_results{:id => survey.id}= survey.number_of_results
           / %td= link_to 'Show', admin_survey_path
-          %td= link_to 'Edit', edit_admin_survey_path(survey)
-          %td= link_to 'Destroy', admin_survey_path(survey), :confirm => 'Are you sure?', :method => :delete
+          %td{:class => 'link'}= link_to 'Show results', admin_survey_survey_results_path(:survey_id => survey.id)
+          %td{:class => 'link'}= link_to 'Edit', edit_admin_survey_path(survey)
+          %td{:class => 'link'}= link_to 'Destroy', admin_survey_path(survey), :confirm => 'Are you sure?', :method => :delete
 - else
   %p No surveys added
 

@@ -18,7 +18,7 @@ class SurveyResult < ActiveRecord::Base
     end
     
     def user_already_submitted?(survey_id, ip_address)
-      where(:survey_id => survey_id, :ip_address => ip_address)
+      where(:survey_id => survey_id, :ip_address => ip_address).first
     end
   end
   

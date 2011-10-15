@@ -14,6 +14,15 @@ class Question < ActiveRecord::Base
     answers.first #if first exists method evaluates to true
   end
   
+  def data_for_chart
+    return [] unless type_is?('option')
+    answers.map { |a| [ a.content, UserAnswer.count(:conditions => ["question_id = ? AND answer_id = ? ", self.id, a.id]) ] }
+  end
+  
+  def type_is?(type_to_check)
+    question_type == type_to_check
+  end
+  
   private
   def set_defaults
     self.question_type = 'text' if id.nil? && question_type.nil?
