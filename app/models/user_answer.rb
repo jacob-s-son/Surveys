@@ -7,6 +7,7 @@ class UserAnswer < ActiveRecord::Base
   validates_presence_of :answer_id, :if => :question_has_answers?
   validates :content, :presence => { :unless => :question_has_answers?, :message => 'can\'t be blank', :allow_blank => false }, 
                       :format => { :with => /^[0-9]+$/, :if => :answer_type_number?, :message => 'must be a number' }
+                      
   
   def question_has_answers?
     question.has_answers?

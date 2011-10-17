@@ -7,4 +7,7 @@
       .chart{:id => "chart_#{q.id}"}
       = render :partial => 'chart', :locals => { :q => q, :survey => @survey }
     -else
-      .no_info Nothing to display
+      .result_finder_container{:id => "result_finder_container_#{q.id}"}
+        .finder_form_container{:id => "finder_form_container_#{q.id}"}
+          = render :partial => 'result_finder', :locals => {:question => q, :survey => @survey}
+        .finder_results_container{:id => "finder_results_container_#{q.id}"}

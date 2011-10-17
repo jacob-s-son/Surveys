@@ -20,6 +20,11 @@ class SurveyResult < ActiveRecord::Base
     def user_already_submitted?(survey_id, ip_address)
       where(:survey_id => survey_id, :ip_address => ip_address).first
     end
+
+    def search( query, question_id, survey_id )
+      # UserAnswers.where [ "question_id = ? AND content LIKE ? AND survey_result_id IN (SELECT id FROM survey_results WHERE survey)":question_id => question_id, :content => query, 
+      #                   :survey_result_id => find_by_survey_id(survey_id, :select => survey_result_id) ]
+    end
   end
   
   def update(params)

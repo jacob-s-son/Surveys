@@ -5,11 +5,12 @@ Surveys::Application.routes.draw do
     resources :questions, :only => [:index]
     resources :surveys do
       resources :survey_results, :only => [:index]
+      resources :user_answers, :only => :index
     end
+    
     root :to => 'surveys#index'
   end
   
-  resources :user_answers
   resources :surveys, :only => [:index] do
     resources :survey_results , :only => [:new, :create]
   end
