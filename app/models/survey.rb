@@ -5,7 +5,11 @@ class Survey < ActiveRecord::Base
   has_many :answers, :through => :questions
   accepts_nested_attributes_for :questions, :answers, :allow_destroy => true
   has_many :survey_results, :dependent => :destroy
-  has_many :user_answers, :through => :survey_results
+  has_many :user_answers, :through => :survey_results do
+    def search (query, question_id, page)
+      where([" user_answers.question_id = ? AND user_answers.content LIKE ? ", question_id, query]).page(page).per_page(5)
+    end
+  end
   validates_presence_of :title, :author, :description
   after_initialize :defaults
   before_validation :delete_unused_objects

@@ -1,0 +1,15 @@
+%table{ :class => "finder_result_summary"}
+  %tr
+    %th Search string
+    %th Items matched
+  %tr
+    %td= params[:query] 
+    %td= @user_answers.total_entries 
+
+%table{ :class => "finder_result_table" }
+  %tr
+    %th Answer
+  %tr
+  -@user_answers.each do |ua|
+    %td= 
+    

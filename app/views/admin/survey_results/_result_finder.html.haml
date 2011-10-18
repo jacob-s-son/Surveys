@@ -1,5 +1,5 @@
-= simple_form_for :user_answer, :url => admin_user_answers_path, :method => :get, :remote => true do |f|
-  = f.text_field_tag 'search_str'
+= simple_form_for :user_answer, :url => admin_survey_user_answers_path, :method => :get, :remote => true do |f|
+  = f.text_field 'query'
   = f.submit 'Find'
   = f.hidden_field 'question_id', :value => question.id
   = f.hidden_field 'survey_id', :value => survey.id
