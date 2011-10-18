@@ -141,6 +141,14 @@ class AnswerRemoveLink extends RemoveLink
 		super()
 		application.update_answer_labels(@id)
 
+class FinderForm
+	constructor: (@dom_object)->
+		@dom_object.submit (event) => @submited event
+		
+	submited: (event)->
+		$.get @dom_object.attr('action'), @dom_object.serialize(), (data)=>
+			@dom_object.parent().next().html data
+		false
 		
 		
 class Application
@@ -150,6 +158,7 @@ class Application
 		@question_type_selects = []
 		@question_remove_links = []
 		@answer_remove_links = []
+		@finder_forms = []
 		
 		for link in $('.add_answer')
 			@answer_links.push new AnswerLink( link.id )
@@ -162,6 +171,10 @@ class Application
 		
 		for link in $('div.answer_remove_link_container > a')
 			@answer_remove_links.push new AnswerRemoveLink( link.id )
+		
+		for finder_form in $('form.user_answer')
+			@finder_forms.push new FinderForm( $(finder_form) )
+		
 			
 	update_labels: (label_selector)->
 		i = 1;

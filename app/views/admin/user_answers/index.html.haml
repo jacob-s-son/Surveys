@@ -1,15 +1,20 @@
 %table{ :class => "finder_result_summary"}
   %tr
     %th Search string
-    %th Items matched
+    %th Total
   %tr
-    %td= params[:query] 
+    %td= params[:user_answer][:query]
     %td= @user_answers.total_entries 
+    
+- unless @user_answers.empty?
+  %table{ :class => "finder_result_table" }
+    %tr
+      %th Nr
+      %th Answer
+    -@user_answers.each_with_index do |ua, i|
+      %tr
+        %td=i+1
+        %td=user_answer_content(ua, params[:user_answer][:query])
 
-%table{ :class => "finder_result_table" }
-  %tr
-    %th Answer
-  %tr
-  -@user_answers.each do |ua|
-    %td= 
+= will_paginate @user_answers
     

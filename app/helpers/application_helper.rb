@@ -35,4 +35,13 @@ module ApplicationHelper
     
     render_chart chart, "chart_#{question.id}"
   end
+  
+  def matched_answer_content(content, query)
+    "<span class=\"portion_matched\">#{ content.match(/#{query}/).to_s }</span>"
+  end
+  
+  def user_answer_content(ua, query)
+    query.gsub! /%/, ''
+    "<span>#{ua.content.sub /#{query}/, matched_answer_content(ua.content, query) }</span>".html_safe
+  end
 end

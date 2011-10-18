@@ -29,6 +29,10 @@ $after-label:$label-width + $space-after-label;
 	  margin-left: $after-label;  
 	}
 	
+	input[value='Find'] {  
+	  margin-left: 10px;  
+	}
+	
 	div.boolean label {  
 	  float: none;  
 	  margin: 0;  
@@ -125,4 +129,21 @@ table.surveys_table {
 
 .question_and_results_container {
 	margin-top:15px;
+	
+	.result_finder_container, div.pagination {
+		margin-top:15px;
+	}
+	
+	table.finder_result_table, table.finder_result_summary {
+		margin-top:15px;
+		
+		th {
+			min-width:150px;
+			text-align:left;
+		}
+		
+		span.portion_matched {
+			background-color:yellow;
+		}
+	}
 }
