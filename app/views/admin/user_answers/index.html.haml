@@ -17,4 +17,7 @@
         %td=user_answer_content(ua, params[:user_answer][:query])
 
 = will_paginate @user_answers
+:javascript
+  $('.pagination a').attr('data-remote', 'true');
+
     

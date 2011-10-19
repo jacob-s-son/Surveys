@@ -146,9 +146,22 @@ class FinderForm
 		@dom_object.submit (event) => @submited event
 		
 	submited: (event)->
+		# @toggleLoading = () => { $("#loading").toggle() };
+		
 		$.get @dom_object.attr('action'), @dom_object.serialize(), (data)=>
 			@dom_object.parent().next().html data
+			for link in @dom_object.parent().next().find('div.pagination a')
+				@update_pagination(link)
+	     	# $(link).bind("ajax:loading",  toggleLoading)
+	     	# $(link).bind("ajax:complete", toggleLoading)
+	     	
+
 		false
+		
+	update_pagination: (link) ->
+		$(link).bind "ajax:success", (event, data, status, xhr) =>
+			console.log data
+			@dom_object.parent().next().html data
 		
 		
 class Application
