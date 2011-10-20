@@ -150,18 +150,19 @@ class FinderForm
 		
 		$.get @dom_object.attr('action'), @dom_object.serialize(), (data)=>
 			@dom_object.parent().next().html data
-			for link in @dom_object.parent().next().find('div.pagination a')
-				@update_pagination(link)
-	     	# $(link).bind("ajax:loading",  toggleLoading)
-	     	# $(link).bind("ajax:complete", toggleLoading)
-	     	
 
 		false
 		
-	update_pagination: (link) ->
-		$(link).bind "ajax:success", (event, data, status, xhr) =>
-			console.log data
-			@dom_object.parent().next().html data
+class PaginationLink extends Link
+	constructor: (link)->
+		@dom_object = $(link)
+		@add_events()
+		
+	clicked: (event) ->
+		console.log "clicked !"
+		$.get @dom_object.attr('href'), (data)=>
+			@dom_object.parent().parent().html data
+		false
 		
 		
 class Application
@@ -218,6 +219,10 @@ class Application
 	update_answer_labels: (remove_link_id)->
 		parent = $("##{remove_link_id}").closest('.answers_container')
 		@update_labels("##{parent.attr('id')} .answer_label")
+	
+	update_pagination_links: (question_id)->
+		for link in $("#result_finder_container_#{question_id} a")
+			new PaginationLink link
 	
 	
 $ ->

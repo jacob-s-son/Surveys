@@ -18,6 +18,6 @@
 
 = will_paginate @user_answers
 :javascript
-  $('.pagination a').attr('data-remote', 'true');
+  window.application.update_pagination_links("#{params[:user_answer][:question_id]}")
 
     
